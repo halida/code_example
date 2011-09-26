@@ -1,0 +1,13 @@
+body {background-color:#e3e3e3}
+
+#title {height:80px; background-color:#e3e382}
+#profile {float: right}
+#profile ul li {text-align: left;display: inline}
+
+#nav {height:30px; background-color:#00f020}
+#nav ul li {text-align: left;display: inline}
+
+#foot {height:30px; background-color:#12e1e1}
+#links ul li {text-align: left;display: inline}
+#site {float: left}
+#links {float: right}

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>tetris</title>
+    <meta name="author" content="linjunhalida">
+    <script type="text/javascript" src="jquery.min.js"></script>  
+    <link rel="stylesheet" type="text/css" href="tetris.css" /> 
+ 
+  </head>
+
+  <body>
+    <h1>tetris</h1>
+
+    <script type="text/javascript" src="tetris.js"></script>
+    <div id="status"></div>
+
+
+    <div id="control">
+      <button onclick="start_game();">start</button>
+      
+      <button onclick="turnto(-1);">left</button>
+      <button onclick="turnto(1);">right</button>
+      <button onclick="turnto(2);">down</button>
+    </div>
+
+      <canvas id="canvas" width="320" height="800" />
+    <hr>
+  </body>
+</html>

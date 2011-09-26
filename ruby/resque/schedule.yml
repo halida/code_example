@@ -1,0 +1,7 @@
+tick:
+  cron: "* * * * *"
+  class: Tick
+  queue: high
+  args: 
+  description: "tick"
+

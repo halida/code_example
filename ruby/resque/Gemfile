@@ -1,0 +1,9 @@
+source 'http://rubygems.org'
+
+gem 'mongo'
+gem 'sqlite3'
+gem 'json'
+gem 'sinatra'
+
+gem 'resque'
+gem 'resque-scheduler'

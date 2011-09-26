@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>chatroom</title>
+    <meta name="author" content="halida">
+    <script src="{{ static_url("jquery.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url("w.js") }}"></script>
+  </head>
+
+  <body>
+    <h1>websocket chatroom</h1>
+
+    <form id="set-name" action="javascript:init();">
+      你的名字:
+      <input type="text" id="name"/>
+      <input type="submit" id="set-name-btn" value="连接"/>
+    </form>
+
+    <form id="send-msg" action="javascript:send();" style="display:none;">
+      <input type="text" id="msg"/>
+      <input type="submit" value="发送"/>
+    </form>
+
+    <div id="msgs">
+    </div>
+  </body>
+</html>

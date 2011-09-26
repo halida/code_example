@@ -1,0 +1,13 @@
+task :default => [:run]
+
+task :run => ["p"] do
+  sh "./p"
+end
+
+file "p" => ["main.o", "lib.o"] do |t|
+  sh "cc -o #{t.name} #{t.prerequisites.join(' ')}" 
+end
+
+rule '.o' => ['.c'] do |t|
+  sh "cc #{t.source} -c -o #{t.name}" 
+end

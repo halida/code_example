@@ -1,0 +1,47 @@
+;; change (+ 1 (* 2 3)) => (1 + (2 * 3))
+(defmacro ca (&rest body)
+  `(rep ',body))
+
+(defun rep (list)
+  (l1 list))
+
+(defun l0 (list)
+  (cond ((atom list) (l1 list))
+	((< (length list) 3) (l1 list))
+	((eq (car list) #\() (rep (cadr list)))
+	(T (print "l0"))))
+
+(defun l1 (list)
+  (cond ((atom list) (l2 list))
+	((< (length list) 2) (l2 list))
+	((eq (cadr list) '*) 
+	 (* (rep (car list))
+	    (rep (cddr list))))
+	((eq (cadr list) '/) 
+	 (/ (rep (car list))
+	    (rep (cddr list))))
+	(T (l2 list))
+      ))
+
+(defun l2 (list)
+  (cond ((atom list) (l3 list))
+	((< (length list) 2) (l3 list))
+	((eq (cadr list) '+)
+	 (+ (rep (car list))
+	    (rep (cddr list))))
+	((eq (cadr list) '-) 
+	 (- (rep (car list))
+	    (rep (cddr list))))
+	(T (l3 list))))
+
+(defun l3 (list)
+  (cond ((atom list) list)
+	((< (length list) 1)
+	 (rep list))
+	((not (atom (car list)))
+	 (rep (car list)))
+	(T (car list))))
+
+;; count result..
+(print (ca 1 + 2 * (3 + 2)))
+

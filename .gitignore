@@ -1,0 +1,17 @@
+*.orig
+*.pyc
+*_ui.py
+*~
+*.qm
+*.log
+*.txt
+*.cfg
+*.bak
+
+*.o
+*.so
+
+Gemfile.lock
+
+ruby/rails/p2plearning/tmp/pids/server.pid
+ruby/rails/p2plearning/db/development.sqlite3
