@@ -10,8 +10,10 @@
 
 *.o
 *.so
+*.bin
+*.out
 
 Gemfile.lock
 
-ruby/rails/p2plearning/tmp/pids/server.pid
-ruby/rails/p2plearning/db/development.sqlite3
+*.pid
+*.sqlite3
