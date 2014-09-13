@@ -1,0 +1,15 @@
+---
+- !ruby/object:Backup::Package
+  trigger: mylib
+  extension: tar
+  chunk_suffixes: []
+  no_cycle: false
+  version: 4.0.3
+  time: 2014.08.23.02.22.54
+- !ruby/object:Backup::Package
+  trigger: mylib
+  extension: tar
+  chunk_suffixes: []
+  no_cycle: false
+  version: 4.0.3
+  time: 2014.08.23.02.22.18
