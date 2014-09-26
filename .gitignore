@@ -17,3 +17,5 @@ Gemfile.lock
 
 *.pid
 *.sqlite3
+
+tmp/
