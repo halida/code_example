@@ -16,6 +16,8 @@ set :deploy_to, File.join(mina_dir, "/deployed_to")
 set :repository, "halida@localhost:#{File.join mina_dir, 'ttt'}"
 set :branch, 'master'
 
+set :keep_releases, 2
+
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
 set :shared_paths, ['config/database.yml', 'log']
@@ -61,7 +63,8 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue "touch #{deploy_to}/tmp/restart.txt"
+      # queue "touch #{deploy_to}/tmp/restart.txt"
+      queue! "echo ok"
     end
   end
 end

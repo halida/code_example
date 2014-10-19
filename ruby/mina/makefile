@@ -1,16 +1,13 @@
 create:
 	rails new ttt
-	cd ttt
-
-	mina init
-	cp ../deploy.rb ./config/
-	git init .
-	git add .
-	git ci -m "init"
+	cd ttt && cp ../deploy.rb ./config/
+	cd ttt && git init .
+	cd ttt && git add .
+	cd ttt && git ci -m "init"
 
 deploy:
-	mina setup
-	mina deploy
+	cd ttt && mina setup
+	cd ttt && mina deploy
 
 clean:
 	rm -rf ttt
