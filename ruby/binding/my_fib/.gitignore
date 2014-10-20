@@ -1,0 +1,5 @@
+*.DS_Store
+*.swp
+/lib/my_malloc/my_malloc.{bundle,dll,so}
+/pkg
+/tmp
