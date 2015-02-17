@@ -9,8 +9,8 @@ require 'resolv'
 # run
 # python -m SimpleHTTPServer 8100
 
-ip = '127.0.0.1'
-port = 8100
+ip = '46.137.198.152'
+port = 1723
 
 header = """
 GET http://127.0.0.1/ HTTP/1.1
