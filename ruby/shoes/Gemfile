@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+gem 'shoes'
+gem 'shoes-swt'
+gem 'warbler'
