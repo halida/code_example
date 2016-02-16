@@ -1,0 +1,7 @@
+[package]
+name = "game"
+version = "0.1.0"
+authors = ["halida <linjunhalida@gmail.com>"]
+
+[dependencies]
+piston_window = "0.11.0"

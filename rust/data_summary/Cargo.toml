@@ -1,0 +1,8 @@
+[package]
+name = "data_summary"
+version = "0.1.0"
+authors = ["halida <linjunhalida@gmail.com>"]
+
+[dependencies]
+rusqlite = "0.2"
+
