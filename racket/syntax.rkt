@@ -45,6 +45,10 @@
               (printf "~a " i)))
 
 ;; define raw
-(define-syntax (abc x y z)
-  )
-(abc 1 2 3)
+(define-syntax abc
+  (lambda (stx)
+    #'(+ 1 2)))
+(abc 1 1 1)
+
+(syntax-case #'(op a b c) ()
+    [(_ a b c) #'(list c b a)])

@@ -13,19 +13,18 @@
 (query-exec conn "insert into items(name, count) values($1, $2)" "jj" 32)
 (query-rows conn "select * from items")
 
-(if #t
-    (define item% (gen-data-class conn "items"))
-    (define item%
-      (data-class object%
-                  (table-name "items")
-                  (column (id #f "id")
-                          (name #f "name")
-                          (count 0 "count"))
-                  (primary-key id)
-                  (define/public (desc)
-                    (format "item for ~a is ~a" name count))
-                  (super-new)))
-    )
+(define item% (gen-data-class conn "items"))
+;; (define item%
+;;   (data-class object%
+;;               (table-name "items")
+;;               (column (id #f "id")
+;;                       (name #f "name")
+;;                       (count 0 "count"))
+;;               (primary-key id)
+;;               (define/public (desc)
+;;                 (format "item for ~a is ~a" name count))
+;;               (super-new)))
+
 
 ;; save new
 (define i1 (new item%))
