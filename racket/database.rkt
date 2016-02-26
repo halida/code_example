@@ -1,7 +1,7 @@
 (require db)
 
 (define conn
-    (sqlite3-connect #:database 'memory))
+  (sqlite3-connect #:database 'memory))
 
 (query-exec
  conn
@@ -14,6 +14,8 @@
     "insert into the_numbers values ($1, $2)"
     (+ 1 1)
     "company")
+
+
 (define result (query conn "select n, d from the_numbers where n % 2 = 0"))
 
 (query-rows conn "select n, d from the_numbers where n % 2 = 0")

@@ -5,6 +5,7 @@
 ;; without syntax
 (define-class-raw 'post
   (lambda (klass)
+    (define-attr klass 'title 'blog)
     (define-method klass 'name
       (lambda (self)
         "post"))
