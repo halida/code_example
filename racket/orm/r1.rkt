@@ -1,18 +1,28 @@
 #lang racket/base
+
 (require "initdb.rkt")
 (require "orm.rkt")
 
 (define conn (initdb))
+(orm-set-default-connection conn)
 
-(define item%
-  (generate-data-class conn "items"))
+(make-model
+ item
+ (define/public (show)
+   (format "~a:~a"
+           (get-field name item)
+           (get-field count item)
+           ))
+ )
 
-(define i1 (send item% find #:id 1))
+(define i1
+  (create-item [name "book"] [count 12]))
 
-(send i1 get-name)
-(send i1 get-count)
-(send i1 set-name "cat")
+(set-field! count i1 1)
 (send i1 save)
 
-(send item% where "count > 10") ;; list
+(define items (query-item "count > ?" 3))
+
+(for/list ([item (query->list items)])
+  (display (send item show)))
 
