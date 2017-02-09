@@ -1,36 +1,61 @@
-def prompt(text)
-  print text + ' '
-  text = gets.strip
-end
+require './lib'
 
-class Debuger
+class Server
+
   def start
     require "socket"
-    dts = TCPServer.new('localhost', 20000)
+    dts = TCPServer.open('localhost', 20000)
+    log("starting server..")
 
     loop do
       Thread.start(dts.accept) do |s|
-        puts "#{Time.now}\tstart: #{s.addr}"
+        log("start: #{s.addr}")
         self.process(s)
-        puts "#{Time.now}\tending: #{s.addr}"
+        log("ending: #{s.addr}")
         s.close
       end
     end
   end
 
   def process(s)
-    while not s.eof? and cmd = s.readline
-      result = eval(cmd)
-      puts "on result: #{result}"
-      s.write(result)
+    loop_command(s) do |cmd|
+      log("got: #{cmd}")
+      result = run(cmd)
+      log("result: #{result}")
+      s.puts(result)
     end
   end
+
+  def loop_command(s)
+    begin
+
+      while true
+        begin
+          out = s.gets
+        rescue EOFError => e
+          # end of socket
+          break
+        end
+        yield(out)        
+      end
+
+    rescue Exception => e
+      puts "loop run error: \n#{e.message}\n#{e.backtrace.join("\n")}"
+    end
+  end
+
+  def run(cmd)
+    begin
+      eval(cmd)
+    rescue Exception => e
+      "run command error: \n#{e.message}\n#{e.backtrace.join("\n")}"
+    end
+  end
+
+  def log(msg)
+    puts "#{Time.now}\t#{msg}"
+  end
+
 end
 
-# t = Thread.new{ Debuger.new.start }
-
-# while text = prompt('>')
-#   puts ": #{text}"
-# end
-
-Debuger.new.start
+Server.new.start
