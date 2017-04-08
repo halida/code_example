@@ -1,0 +1,2 @@
+run:
+	csi rack.scm
