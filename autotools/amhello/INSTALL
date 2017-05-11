@@ -1,0 +1,12 @@
+# build
+autoreconf --install
+./configure
+make
+
+# will create tar.gz for distribute
+make dist-check
+
+# cleanup
+make clean
+# cleanup ./configure generated files
+make distclean
