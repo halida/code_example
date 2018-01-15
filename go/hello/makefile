@@ -9,3 +9,6 @@ hello.bin:
 
 clean:
 	rm *.bin
+
+format:
+	gofmt -w hello.go
