@@ -1,4 +1,4 @@
-init:
-	dotnet restore
 run:
 	dotnet run
+init:
+	dotnet restore

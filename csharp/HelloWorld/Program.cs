@@ -13,7 +13,8 @@ namespace HelloWorld
                 Console.Write(",");
             }
 
-            Console.WriteLine("Hello World!");
+            MyClass c1 = new MyClass();
+            Console.WriteLine($"Hello World! {c1.ReturnMessage()}");
         }
     }
 }
