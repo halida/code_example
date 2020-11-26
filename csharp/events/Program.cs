@@ -2,7 +2,7 @@
 
 namespace events
 {
-    public class SampleEventArgs
+    public class SampleEventArgs : EventArgs
     {
         public SampleEventArgs(string s) { Text = s; }
         public String Text { get; } // readonly
