@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      args:
+        - http_proxy="http://192.168.10.110:8080"
+    volumes:
+      - .:/code
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+  redis:
+    image: "redis:alpine"
