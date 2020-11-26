@@ -1,1 +1,1 @@
-sqlalchemy==1.1.15   # sqlalchemy==1.1.15 << requirements file
+sqlalchemy==1.3.0   # sqlalchemy==1.3.0 << requirements file
